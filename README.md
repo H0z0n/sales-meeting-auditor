@@ -4,8 +4,6 @@
 
 *Record a sales meeting in the browser → transcribe it with Whisper → get an AI audit: manager score, client profile, objections, next-call script and a CRM summary. Zero dependencies, Node.js, Claude / OpenAI / Gemini.*
 
-![Скриншоты приложения](docs/portfolio.png)
-
 ## Возможности
 
 - **Запись в браузере** через MediaRecorder: ничего не нужно устанавливать. Без микрофона можно загрузить аудиофайл или вставить готовый текст.
