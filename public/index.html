@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аудитор встреч продаж</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Аудитор <span>встреч</span></h1>
+      <p class="sub">Запись разговора → расшифровка → ИИ-разбор по вашей методике продаж</p>
+      <p id="cfg" class="cfg"></p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card rec">
+      <ol class="steps" id="steps">
+        <li data-step="record">1. Запись</li>
+        <li data-step="transcribe">2. Расшифровка</li>
+        <li data-step="analyze">3. Анализ</li>
+      </ol>
+
+      <div class="rec-main">
+        <button id="recBtn" class="rec-btn" type="button">Начать запись</button>
+        <div class="rec-info">
+          <div id="timer" class="timer">00:00</div>
+          <div class="meter"><div id="meterBar"></div></div>
+        </div>
+      </div>
+      <p id="status" class="status" role="status"></p>
+      <div id="error" class="error" role="alert" hidden></div>
+
+      <details class="more">
+        <summary>Данные встречи (необязательно)</summary>
+        <div class="grid">
+          <label>Менеджер <input id="f-manager" type="text" placeholder="Имя менеджера"></label>
+          <label>Дата встречи <input id="f-date" type="date"></label>
+          <label>ID встречи <input id="f-meetingId" type="text" placeholder="подставится автоматически"></label>
+          <label class="wide">Данные сделки из CRM <textarea id="f-crm" rows="2"></textarea></label>
+          <label class="wide">Актуальные условия (акции, рассрочка) <textarea id="f-rules" rows="2" placeholder="Например: распродажа −15% на коллекцию X, остаток есть"></textarea></label>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Без микрофона: загрузить аудио или вставить текст</summary>
+        <div class="alt">
+          <label class="file">Аудиофайл (mp3, m4a, wav, webm — до 25 МБ)
+            <input id="fileInput" type="file" accept="audio/*,video/webm">
+          </label>
+          <label>Готовая расшифровка
+            <textarea id="manualText" rows="5" placeholder="Вставьте текст разговора — расшифровка будет пропущена"></textarea>
+          </label>
+          <button id="manualBtn" class="btn" type="button">Анализировать текст</button>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" id="transcriptCard" hidden>
+      <h2>Расшифровка</h2>
+      <pre id="transcript" class="transcript"></pre>
+    </section>
+
+    <section class="card" id="reportCard" hidden>
+      <div class="report-head">
+        <h2>Отчёт ИИ-аудитора</h2>
+        <div class="actions">
+          <button id="copyBtn" class="btn" type="button">Скопировать</button>
+          <button id="downloadBtn" class="btn" type="button">Скачать .md</button>
+          <button id="reBtn" class="btn" type="button">Анализ заново</button>
+        </div>
+      </div>
+      <article id="report" class="report"></article>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
